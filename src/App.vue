@@ -1,5 +1,5 @@
 <template>
-	<div id="app">
+  <div id="app">
     <div class="list">
       <label>类型</label>
       <div class="list-item">
@@ -16,33 +16,33 @@
         <span>小公主</span>
       </div>
     </div>
-	</div>
+  </div>
 </template>
 
 <script>
-import MyRadio from './components/MyRadio'
+  import MyRadio from './components/MyRadio'
 
-	export default {
+  export default {
     name: 'app',
-		data(){
-			return {
-				val:'',
-				isdisabled:true,
-				ischecked:true
-			}
-		},
-		components:{
-			MyRadio
-		}
+    data() {
+      return {
+        val: '',
+        isdisabled: true,
+        ischecked: true
+      }
+    },
+    components: {
+      MyRadio
+    }
   }
 </script>
 
 <style>
-	#app {
-		font-family: 'Avenir', Helvetica, Arial, sans-serif;
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
-		color: #2c3e50;
-		margin-top: 60px;
-	}
+  #app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #2c3e50;
+    margin-top: 60px;
+  }
 </style>
