@@ -3,17 +3,11 @@
     <div class="list">
       <label>类型</label>
       <div class="list-item">
-        <my-radio v-model="val" value="1"></my-radio>
-        <span>喵星人</span>
-        <my-radio v-model="val" :checked="ischecked" value="2"></my-radio>
-        <span>汪星人</span>
+        <my-radio v-model="val1" :options="['喵星人', '汪星人']"></my-radio>
       </div>
       <label>性别</label>
       <div class="list-item">
-        <my-radio v-model="val" value="3"></my-radio>
-        <span>小王子</span>
-        <my-radio v-model="val" :checked="ischecked" value="4"></my-radio>
-        <span>小公主</span>
+        <my-radio v-model="val2" :options="['小公主', '小王子']"></my-radio>
       </div>
     </div>
   </div>
@@ -26,7 +20,8 @@
     name: 'app',
     data() {
       return {
-        val: '',
+        val1: '',
+        val2: '',
         isdisabled: true,
         ischecked: true
       }
