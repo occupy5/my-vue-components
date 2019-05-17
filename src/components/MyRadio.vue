@@ -1,25 +1,20 @@
 <template>
   <div>
     <label v-for="(option, index) in options" :key='index'>
-      <input class="my-radio" type="radio" ref="radio" :value="option" v-model="localValue" :disabled="disabled">{{option}}
+      <input type="radio" ref="radio" :value="option" v-model="localValue">{{option}}
     </label>
   </div>
 </template>
 <script>
   export default {
     name: 'MyRadio',
-    // model: {
-    //   prop: 'model',
-    //   event: 'change'
-    // },
     props: {
       options: {
         type: Array,
         required: true
       },
       value: {
-        type: [String, Number],
-        required: true
+        type: [String, Number]
       },
       checked: {
         type: Boolean,
@@ -35,7 +30,9 @@
         get() {
           return this.value
         },
+        // setter调用时getter也会相应的更新
         set(value) {
+          // 触发input上的事件
           this.$emit('input', value)
         }
       }

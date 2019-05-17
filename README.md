@@ -22,4 +22,4 @@ Vue.component('my-checkbox', {
 ```
 具体[文档地址](https://cn.vuejs.org/v2/api/#model)
 ## radio组
-原理类似
+重点：radio和radio-group之间的联动及数据绑定关系
