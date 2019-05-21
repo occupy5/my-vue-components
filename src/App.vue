@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <!-- my-radio组件 -->
     <!-- 实现方式1 -->
     <div class="list">
       <label>类型</label>
@@ -29,6 +30,15 @@
         </my-radio-group>
       </div>
     </div>
+    <!-- my-input组件 -->
+    <my-input placeholder="请输入内容">
+      <div slot="prepend">
+        <span>前缀</span>
+      </div>
+      <div slot="append">
+        <span>后缀</span>
+      </div>
+    </my-input>
   </div>
 </template>
 
@@ -36,6 +46,7 @@
   import MyRadio from './components/MyRadio'
   import MyRadioButton from './components/MyRadioButton'
   import MyRadioGroup from './components/MyRadioGroup'
+  import MyInput from './components/MyInput'
   export default {
     name: 'app',
     data() {
@@ -51,7 +62,8 @@
     components: {
       MyRadio,
       MyRadioButton,
-      MyRadioGroup
+      MyRadioGroup,
+      MyInput
     }
   }
 </script>
