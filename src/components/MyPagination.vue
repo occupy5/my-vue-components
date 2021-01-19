@@ -1,6 +1,5 @@
 <template>
   <ul class="pagination" :class="paginationClass">
-    <!-- 前一页 -->
     <li
       class="page-item prev-page"
       :class="{ disabled: value === 1, 'no-arrows': noArrows }"
@@ -12,7 +11,6 @@
         <i class="fa-angle-double-left" v-else></i>
       </a>
     </li>
-    <!-- 当前页面 -->
     <li
       class="page-item"
       v-for="item in range(minPage, maxPage)"
@@ -21,7 +19,6 @@
     >
       <a class="page-link" @click="changePage(item)">{{ item }}</a>
     </li>
-    <!-- 后一页 -->
     <li
       class="page-item next-page"
       :class="{ disabled: value === totalPages, 'no-arrows': noArrows }"
@@ -44,13 +41,11 @@ export default {
       default: "primary",
       validator: value => {
         return [
-          "default",
           "primary",
           "danger",
           "success",
           "warning",
-          "info",
-          "rose"
+          "info"
         ].includes(value);
       }
     },
@@ -231,56 +226,30 @@ export default {
     }
 
     // Colors
-    &.pagination-info{
+    $color-info: #5bc0de;
+    $color-success: #5cb85c;
+    $color-warning: #f0ad4e;
+    $color-danger: #d9534f;
+    // lists
+    $lists: (
+      'info': $color-info, 
+      'success': $color-success, 
+      'warning': $color-warning, 
+      'danger': $color-danger
+    );
+    @each $type, $color in $lists {
+      &.pagination-#{$type} {
         > .page-item.active > a,
         > .page-item.active > span{
             &,
             &:focus,
             &:hover{
-                background-color:  #5bc0de;
-                border-color:  #5bc0de;
-                @include shadow-4dp-color(#5bc0de);
-            }
+              background-color:  $color;
+              border-color:  $color;
+              @include shadow-4dp-color($color);
+          }
         }
-    }
-
-    &.pagination-success{
-        > .page-item.active > a,
-        > .page-item.active > span{
-            &,
-            &:focus,
-            &:hover{
-                background-color: #5cb85c;
-                border-color: #5cb85c;
-                @include shadow-4dp-color(#5cb85c);
-            }
-        }
-    }
-
-    &.pagination-warning{
-        > .page-item.active > a,
-        > .page-item.active > span{
-            &,
-            &:focus,
-            &:hover{
-                background-color: #f0ad4e;
-                border-color: #f0ad4e;
-                @include shadow-4dp-color(#f0ad4e);
-            }
-        }
-    }
-
-    &.pagination-danger{
-        > .page-item.active > a,
-        > .page-item.active > span{
-            &,
-            &:focus,
-            &:hover{
-                background-color: #d9534f;
-                border-color: #d9534f;
-                @include shadow-4dp-color(#d9534f);
-            }
-        }
+      }
     }
 }
 </style>
